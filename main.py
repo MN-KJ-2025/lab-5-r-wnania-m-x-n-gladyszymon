@@ -55,22 +55,16 @@ def square_from_rectan(
         Jeżeli dane wejściowe są niepoprawne funkcja zwraca `None`.
     """
     try:
-        # Sprawdzenie typów
         if not isinstance(A, np.ndarray) or not isinstance(b, np.ndarray):
             return None
-        
-        # Sprawdzenie wymiarów
         if A.ndim != 2 or b.ndim != 1:
             return None
-        
         m, n = A.shape
         if b.shape[0] != m:
             return None
 
-        # Obliczenie A_new i b_new
         A_new = A.T @ A
         b_new = A.T @ b
-
         return A_new, b_new
 
     except Exception:
